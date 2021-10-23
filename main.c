@@ -6,7 +6,7 @@
 /*   By: shamizi <shamizi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 14:24:50 by shamizi           #+#    #+#             */
-/*   Updated: 2021/10/18 23:22:47 by shamizi          ###   ########.fr       */
+/*   Updated: 2021/10/23 17:07:45 by shamizi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,11 @@ void	initialize(t_stack *stack)
 {
 	stack->a = NULL;
 	stack->b = NULL;
+	stack->sorted = NULL;
 	stack->i = 1;
 	stack->size_a = 0;
 	stack->size_b = 0;
+	stack->size_sorted = 0;
 	stack->action = 0;
 }
 
@@ -112,6 +114,7 @@ void	init_stack(t_stack *stack, char **argv)
 	while(*argv)
 	{
 		stack->a[i] = ft_atoi(*argv);
+		stack->sorted[i] = ft_atoi(*argv);
 		argv++;
 		i++;
 	}
@@ -137,6 +140,7 @@ int	main(int argc, char **argv)
 	initialize(stack);
 	stack->a = (int*)malloc(sizeof(int) * (argc + 1));
 	stack->b = (int*)malloc(sizeof(int) * (argc + 1));
+	stack->sorted = (int *)malloc(sizeof(int) * (argc + 1));
 	while(stack->i < argc)
 	{
 		if (check_arg(argv[stack->i]))
@@ -145,15 +149,15 @@ int	main(int argc, char **argv)
 			ft_exit("Error\n");
 	}
 	stack->size_a = argc - 1;
+	stack->size_sorted = stack->size_a;
 	init_stack(stack, argv);
-	sort(stack, 1);
-
-
+	solution(stack);
+	sort(stack);
 ///////////////////
 	int i = 0;
 	while (i < stack->size_a)
 	{
-		printf("stack a : %d\n",stack->a[i]);
+		printf("stack a : %d \t sorted : %d\n",stack->a[i],stack->sorted[i]);
 		i++;
 	}
 	i = 0;
@@ -162,7 +166,7 @@ int	main(int argc, char **argv)
 		printf("stack b%d : %d\n",i, stack->b[i]);
 		i++;
 	}
-	if (is_sort(stack))
+	if (is_sort(stack) == 0)
 		printf("is_sort\n");
 	else 
 		printf("isnotsort\n");

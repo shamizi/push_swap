@@ -6,7 +6,7 @@
 /*   By: shamizi <shamizi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 13:31:43 by shamizi           #+#    #+#             */
-/*   Updated: 2021/10/19 01:54:06 by shamizi          ###   ########.fr       */
+/*   Updated: 2021/10/23 18:24:56 by shamizi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,13 @@ int	is_sort(t_stack *stack)
 	int i;
 
 	i = 0;
-	if(stack->size_b != 0)
-		return(0);
 	while (i < stack->size_a -1)
 	{
 		if (stack->a[i] > stack->a[i + 1])
-			return (0);
+			return (1);
 		i++;
 	}
-	return (1);
+	return (0);
 }
 
 int	bigger(t_stack *stack)
@@ -36,36 +34,35 @@ int	bigger(t_stack *stack)
 
 	i = 0;
 	pos = 0;
-	tmp = stack->a[0];
-	while(i < stack->size_a)
+	tmp = stack->b[0];
+	while(i < stack->size_b -1)
 	{
-		if (stack->a[i] < tmp)
+		if (stack->b[i] > tmp)
 		{
 			pos = i;
-			tmp = stack->a[i];
+			tmp = stack->b[i];
 		}
 		i++;
 	}
 	return (pos);
 }
-void	sort(t_stack *stack, int b)
+
+
+void	sort(t_stack *stack)
 {
-	if (is_sort(stack))
+	if (!is_sort(stack))
 		return ;
 	if (stack->size_a == 2)
-		solve_two(stack);
-	else if (stack->size_a == 3)
+		solve_two(stack, 0);
+	else if(stack->size_a == 3)
 		solve_three(stack, stack->a[0], stack->a[1], stack->a[2]);
-	else if (stack->a[0] > stack->a[1] &&
-		stack->a[stack->size_a -2] > stack->a[stack->size_a -1] && b)
-		solve_end(stack, 1);
-	else if (stack->a[0] > stack->a[1] && b)
-		swap_a(stack, 1);
-	else if (stack->a[stack->size_a - 2] > stack->a[stack->size_a - 1] && b)
-		solve_end(stack, 0);
+	else if (stack->size_a <= 5)
+		solve_five(stack, stack->size_a);
+	else if (stack->size_a <= 100)
+		sort_plus(stack, stack->size_a, stack->size_a / 5);
+	else if (stack->size_a <= 500)
+		sort_plus(stack, stack->size_a, stack->size_a / 11);
 	else
-		sort_plus(stack);
-	if (is_sort(stack) == 0)
-		sort(stack, 0);
-	printf("fin de fonction sort\n");
+		sort_plus(stack, stack->size_a, stack->size_a / 20);
+
 }

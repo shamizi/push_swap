@@ -6,7 +6,7 @@
 /*   By: shamizi <shamizi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 14:46:42 by shamizi           #+#    #+#             */
-/*   Updated: 2021/10/18 23:53:34 by shamizi          ###   ########.fr       */
+/*   Updated: 2021/10/23 14:57:18 by shamizi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,16 @@ struct					s_stack
 {
 	int *a;
 	int *b;
+	int *sorted;
 	int i;
 	int size_a;
 	int size_b;
+	int size_sorted;
 	int action;
 };
 
+int	is_in_chunk(t_stack *stack, int to_find, int beg, int end, int rev);
+int		find_case(t_stack *stack);
 void	swap_a(t_stack *stack, int print);
 void	swap_b(t_stack *stack, int print);
 void	swap_double(t_stack * stack);
@@ -40,10 +44,12 @@ void	reverse_rotate_b(t_stack *stack, int print);
 void	reverse_rotate_both(t_stack *stack);
 int	is_sort(t_stack *stack);
 int	bigger(t_stack *stack);
-void	sort(t_stack *stack, int b);
-void	solve_two(t_stack *stack);
+void	sort(t_stack *stack);
+void	solve_two(t_stack *stack, int i);
 void	solve_three(t_stack *stack, int a, int b, int c);
+void	solve_five(t_stack *stack, int size);
 void	solve_end(t_stack *stack, int i);
-void	sort_plus(t_stack * stack);
+void	sort_plus(t_stack *stack, int size, int chunk);
 void	empty_b(t_stack *stack);
+void	solution(t_stack *stack);
 #endif
