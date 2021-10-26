@@ -6,7 +6,7 @@
 /*   By: shamizi <shamizi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 14:46:42 by shamizi           #+#    #+#             */
-/*   Updated: 2021/10/23 14:57:18 by shamizi          ###   ########.fr       */
+/*   Updated: 2021/10/26 15:58:38 by shamizi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,12 @@ struct					s_stack
 	int size_b;
 	int size_sorted;
 	int action;
+	char **av;
 };
 
+char **freestrings(char **tab);
+int	nb_mot(char *s, char c);
+char	**ft_split(char *s, char c);
 int	is_in_chunk(t_stack *stack, int to_find, int beg, int end, int rev);
 int		find_case(t_stack *stack);
 void	swap_a(t_stack *stack, int print);
