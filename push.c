@@ -6,7 +6,7 @@
 /*   By: shamizi <shamizi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 11:55:14 by shamizi           #+#    #+#             */
-/*   Updated: 2021/10/13 15:23:09 by shamizi          ###   ########.fr       */
+/*   Updated: 2021/11/05 15:07:56 by shamizi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	push_a(t_stack *stack)
 {
-	int tmp;
-	int i;
+	int		tmp;
+	int		i;
 
 	i = 0;
 	if (stack->size_b > 0)
@@ -26,24 +26,24 @@ void	push_a(t_stack *stack)
 			stack->b[i] = stack->b[i + 1];
 			i++;
 		}
-	  i = stack->size_a;
+		i = stack->size_a;
 		while (i > 0)
 		{
 			stack->a[i] = stack->a[i - 1];
 			i--;
 		}
-	stack->a[0] = tmp;
-	stack->size_a++;
-	stack->size_b--;
-	write(1, "pa\n", 3);
-	stack->action++;
+		stack->a[0] = tmp;
+		stack->size_a++;
+		stack->size_b--;
+		write(1, "pa\n", 3);
+		stack->action++;
 	}
 }
 
-void    push_b(t_stack *stack)
+void	push_b(t_stack *stack)
 {
-	int tmp;
-	int i;
+	int		tmp;
+	int		i;
 
 	i = 0;
 	if (stack->size_a > 0)
@@ -67,4 +67,3 @@ void    push_b(t_stack *stack)
 		stack->action++;
 	}
 }
-

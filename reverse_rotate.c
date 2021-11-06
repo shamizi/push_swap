@@ -6,7 +6,7 @@
 /*   By: shamizi <shamizi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 15:38:36 by shamizi           #+#    #+#             */
-/*   Updated: 2021/10/18 13:29:59 by shamizi          ###   ########.fr       */
+/*   Updated: 2021/11/05 15:42:00 by shamizi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void	rotate_a(t_stack *stack, int print)
 {
-	int tmp;
-	int i;
+	int		tmp;
+	int		i;
 
 	i = 0;
 	if (stack->size_a < 2)
 		return ;
 	tmp = stack->a[0];
-	while(i < stack->size_a)
+	while (i < stack->size_a)
 	{
 		stack->a[i] = stack->a[i + 1];
 		i++;
@@ -36,14 +36,14 @@ void	rotate_a(t_stack *stack, int print)
 
 void	rotate_b(t_stack *stack, int print)
 {
-	int tmp;
-	int i;
+	int		tmp;
+	int		i;
 
 	i = 0;
 	if (stack->size_b < 2)
 		return ;
 	tmp = stack->b[0];
-	while(i < stack->size_b)
+	while (i < stack->size_b)
 	{
 		stack->b[i] = stack->b[i + 1];
 		i++;

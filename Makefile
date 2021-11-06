@@ -6,7 +6,7 @@
 #    By: shamizi <shamizi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/20 15:07:55 by shamizi           #+#    #+#              #
-#    Updated: 2021/10/25 08:38:04 by shamizi          ###   ########.fr        #
+#    Updated: 2021/11/05 15:57:41 by shamizi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ SRCS= main.c \
 	  swap.c \
 	  utils.c \
 	  sort_plus.c \
-	  ft_split.c
+	  ft_split.c \
+	  initfree.c
 
 OBJS =$(SRCS:.c=.o)
 

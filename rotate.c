@@ -6,7 +6,7 @@
 /*   By: shamizi <shamizi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 15:49:28 by shamizi           #+#    #+#             */
-/*   Updated: 2021/10/18 13:30:25 by shamizi          ###   ########.fr       */
+/*   Updated: 2021/11/05 15:43:32 by shamizi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	reverse_rotate_a(t_stack *stack, int print)
 {
-	int tmp;
-	int i;
+	int		tmp;
+	int		i;
 
 	i = stack->size_a;
-	if(i < 2)
+	if (i < 2)
 		return ;
 	tmp = stack->a[stack->size_a - 1];
 	while (i > 0)
@@ -29,15 +29,15 @@ void	reverse_rotate_a(t_stack *stack, int print)
 	stack->a[0] = tmp;
 	if (print)
 	{
-	write(1, "rra\n", 4);
-	stack->action++;
+		write(1, "rra\n", 4);
+		stack->action++;
 	}
 }
 
 void	reverse_rotate_b(t_stack *stack, int print)
 {
-	int tmp;
-	int i;
+	int		tmp;
+	int		i;
 
 	i = stack->size_b;
 	if (i < 2)
